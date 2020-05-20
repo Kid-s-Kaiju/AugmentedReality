@@ -5,7 +5,7 @@ using UnityEngine;
 public class Shoot : MonoBehaviour
 {
     public GameObject bullet;
-
+    public float speed = 10f;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,7 +25,7 @@ public class Shoot : MonoBehaviour
                 GameObject shot = Instantiate(bullet, transform.position, Quaternion.identity);
                 Rigidbody rb = shot.GetComponent<Rigidbody>();
                 shot.transform.LookAt(hit.point);
-                rb.velocity = rb.transform.forward * 10;
+                rb.velocity = rb.transform.forward * speed / 10f;
             }
         }
     }
