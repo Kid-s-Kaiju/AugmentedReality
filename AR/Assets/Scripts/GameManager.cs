@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { set; get; }
     private List<GameObject> allBlocks;
     public GameObject[] levelPrefabs;
-
+    
     private int currentLevel = 0;
     private bool isGameCompleted = false;
 
@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
 
         ChangeScene("Menu");
     }
+
     public void ChangeScene(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
@@ -35,7 +36,14 @@ public class GameManager : MonoBehaviour
     private void CreateLevel()
     {
         if (currentLevel < levelPrefabs.Length)
-            Instantiate(levelPrefabs[currentLevel]);
+        {
+            GameObject lvl = Instantiate(levelPrefabs[currentLevel]);
+            GameObject levelTarget = GameObject.Find("LevelTarget");
+            
+            //lvl.transform.SetParent(levelTarget.transform, false);
+
+            lvl.transform.parent = levelTarget.transform;
+        }
 
         else
             isGameCompleted = true;
@@ -73,7 +81,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (isGameCompleted)
-            ChangeScene("Menu");
+        //if (isGameCompleted)
+           // ChangeScene("Menu");
     }
 }

@@ -19,14 +19,18 @@ public class Block : MonoBehaviour
         if (hasFallen)
             return;
 
-        if (Time.time - lastCheck > 1)
+        if (gameObject.GetComponent<MeshRenderer>().enabled)
         {
-            lastCheck = Time.time;
-
-            if (Vector3.Magnitude(transform.position - startPosition) > 0.5)
+            gameObject.GetComponent<Rigidbody>().useGravity = true;
+            if (Time.time - lastCheck > 1)
             {
-                hasFallen = true;
-                GameManager.Instance.RemoveBlock(gameObject);
+                lastCheck = Time.time;
+
+                if (Vector3.Magnitude(transform.position - startPosition) > 1)
+                {
+                    hasFallen = true;
+                    GameManager.Instance.RemoveBlock(gameObject);
+                }
             }
         }
     }

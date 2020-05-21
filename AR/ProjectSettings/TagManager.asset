@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Block
   - Bullet
+  - Level
   layers:
   - Default
   - TransparentFX
