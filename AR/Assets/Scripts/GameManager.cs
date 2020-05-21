@@ -49,6 +49,8 @@ public class GameManager : MonoBehaviour
             GameObject levelTarget = GameObject.Find("LevelTarget");
             
             lvl.transform.parent = levelTarget.transform;
+
+            StartCoroutine(TitleLevel());
         }
 
         else
@@ -111,5 +113,35 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(6);
         Victory();
+    }
+
+    private IEnumerator TitleLevel()
+    {
+        GameObject Title; 
+        Image rndrr;
+        if (currentLevel == 0)
+        {
+            Title = GameObject.Find("Level1");
+        }
+        else if(currentLevel == 1)
+        {
+            Title = GameObject.Find("Level2");
+        }
+        else if (currentLevel == 2)
+        {
+            Title = GameObject.Find("Level3");
+        }
+        else
+        {
+            Title = GameObject.Find("Level4");
+        }
+
+        rndrr = Title.GetComponent<Image>();
+
+        rndrr.enabled = true;
+
+        yield return new WaitForSeconds(3);
+
+        rndrr.enabled = false;
     }
 }

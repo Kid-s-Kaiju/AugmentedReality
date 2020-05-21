@@ -7,17 +7,21 @@ public class Gun : MonoBehaviour
     public GameObject bullet;
     public Transform spawnTransform;
     public float bulletTime = 8f;
+    public bool canshoot = true;
 
-    // Update is called once per frame
-    void Update()
+
+    public void ShootedButton()
     {
-        if (Input.GetMouseButtonDown(0) && GameManager.Instance.nBullets > 0)
+        if (GameManager.Instance.nBullets > 0)
         {
-            GameManager.Instance.nBullets--;
-            GameObject go = Instantiate(bullet, spawnTransform.position, spawnTransform.rotation);
-            go.GetComponent<Rigidbody>().AddForce(transform.forward * 30, ForceMode.VelocityChange);
+            if (canshoot)
+            {
+                GameManager.Instance.nBullets--;
+                GameObject go = Instantiate(bullet, spawnTransform.position, spawnTransform.rotation);
+                go.GetComponent<Rigidbody>().AddForce(transform.forward * 30, ForceMode.VelocityChange);
 
-            Destroy(go, bulletTime);
+                Destroy(go, bulletTime);
+            }
         }
     }
 }
