@@ -151,7 +151,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelPrefabs:
-  - {fileID: 7775746184003354663, guid: 85cc2ac99558e0f4fbb5ab235af93c50, type: 3}
+  - {fileID: 7775746184003354663, guid: 91f1a0fa8c00ae14589d3e96d6ddd411, type: 3}
+  score: 0
+  nBullets: 5
 --- !u!4 &923238139
 Transform:
   m_ObjectHideFlags: 0

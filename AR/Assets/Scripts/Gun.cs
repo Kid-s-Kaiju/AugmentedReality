@@ -6,6 +6,7 @@ public class Gun : MonoBehaviour
 {
     public GameObject bullet;
     public Transform spawnTransform;
+    public float bulletTime = 8f;
 
     // Update is called once per frame
     void Update()
@@ -15,6 +16,9 @@ public class Gun : MonoBehaviour
             GameManager.Instance.nBullets--;
             GameObject go = Instantiate(bullet, spawnTransform.position, spawnTransform.rotation);
             go.GetComponent<Rigidbody>().AddForce(transform.forward * 30, ForceMode.VelocityChange);
+
+            Destroy(go, bulletTime);
         }
     }
 }
+

@@ -48,6 +48,4 @@ public class Block : MonoBehaviour
         GameManager.Instance.RemoveBlock(gameObject);
         Destroy(gameObject);
     }
-
-
 }
