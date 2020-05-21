@@ -269,7 +269,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 110610037}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 392316361}
+        m_MethodName: MenuedButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &110610037
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1443,13 +1454,15 @@ GameObject:
   - component: {fileID: 392316359}
   - component: {fileID: 392316358}
   - component: {fileID: 392316357}
+  - component: {fileID: 392316362}
+  - component: {fileID: 392316361}
   m_Layer: 5
   m_Name: Pause Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &392316357
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1496,7 +1509,7 @@ Canvas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 392316356}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_RenderMode: 0
   m_Camera: {fileID: 0}
@@ -1532,6 +1545,30 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &392316361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 392316356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7842f096b1f7874c80deeb219a60d7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &392316362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 392316356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4d6a8b107fd56842b5f5538d2318166, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &453510032
 GameObject:
   m_ObjectHideFlags: 0
@@ -3079,7 +3116,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1351283676}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2075945595}
+        m_MethodName: ShootedButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1351283676
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3673,7 +3721,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1725065738}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 392316362}
+        m_MethodName: ResumedButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1725065738
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3868,6 +3927,7 @@ MonoBehaviour:
   bullet: {fileID: 7004041403751998519, guid: 0dabce2395af7d647a67e8997ba9d40b, type: 3}
   spawnTransform: {fileID: 336718152}
   bulletTime: 8
+  canshoot: 1
 --- !u!33 &2075945596
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -4401,6 +4461,36 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -178
       objectReference: {fileID: 0}
+    - target: {fileID: 7134543833512338491, guid: 6ba01bf92d4eb214d9813d1a9a794b74,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7134543833512338491, guid: 6ba01bf92d4eb214d9813d1a9a794b74,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7134543833512338491, guid: 6ba01bf92d4eb214d9813d1a9a794b74,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7134543833512338491, guid: 6ba01bf92d4eb214d9813d1a9a794b74,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 7134543832968709812}
+    - target: {fileID: 7134543833512338491, guid: 6ba01bf92d4eb214d9813d1a9a794b74,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PausedButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 7134543833512338491, guid: 6ba01bf92d4eb214d9813d1a9a794b74,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 7134543833725880323, guid: 6ba01bf92d4eb214d9813d1a9a794b74,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -4423,3 +4513,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6ba01bf92d4eb214d9813d1a9a794b74, type: 3}
+--- !u!1 &7134543832968709811 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7090418685769323363, guid: 6ba01bf92d4eb214d9813d1a9a794b74,
+    type: 3}
+  m_PrefabInstance: {fileID: 7134543832968709810}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7134543832968709812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7134543832968709811}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6776ee791fd61644bfb49da9e3a389a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
