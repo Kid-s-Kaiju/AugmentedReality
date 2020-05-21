@@ -10,13 +10,16 @@ public class GameManager : MonoBehaviour
     private List<GameObject> allBlocks;
     public GameObject[] levelPrefabs;
     
-    private int currentLevel = 0;
+    [HideInInspector]
+    public int currentLevel = 0;
+    
     private bool isGameCompleted = false;
 
     [HideInInspector]
     public int score = 0, nBullets = 5;
 
-        
+    private Canvas winCanvas, loseCanvas, inGameCanvas;
+
     private void Awake()
     {
         Instance = this;
@@ -35,11 +38,25 @@ public class GameManager : MonoBehaviour
         isGameCompleted = false;
 
         if (SceneManager.GetActiveScene().name == "Game")
+        {
+            GameObject winGO = GameObject.Find("Win Canvas");
+            GameObject loseGO = GameObject.Find("Lose Canvas");
+            GameObject inGameGO = GameObject.Find("Lose Canvas");
+
+            winCanvas = winGO.GetComponent<Canvas>();
+            loseCanvas = loseGO.GetComponent<Canvas>();
+            inGameCanvas = inGameGO.GetComponent<Canvas>();
+
             CreateLevel();
+        }
     }
 
-    private void CreateLevel()
+    public void CreateLevel()
     {
+        winCanvas.enabled = false;
+        loseCanvas.enabled = false;
+        inGameCanvas.enabled = true;
+
         if (currentLevel < levelPrefabs.Length)
         {
             score = 0;
@@ -65,12 +82,13 @@ public class GameManager : MonoBehaviour
             allBlocks.Remove(block);
 
         if (allBlocks.Count == 0)
-            StartCoroutine(GoToMenu());
+            StartCoroutine(Win());
     }
 
     public void Victory()
     {
-        currentLevel++;
+        winCanvas.enabled = true;
+        inGameCanvas.enabled = false;
 
         GameObject[] blocks = GameObject.FindGameObjectsWithTag("Block");
         
@@ -80,9 +98,7 @@ public class GameManager : MonoBehaviour
         GameObject[] bullets = GameObject.FindGameObjectsWithTag("Bullet");
 
         for (int i = 0; i < bullets.Length; ++i)
-            DestroyImmediate(bullets[i]);           
-
-        CreateLevel();
+            DestroyImmediate(bullets[i]);
     }
 
     private void Update()
@@ -103,13 +119,24 @@ public class GameManager : MonoBehaviour
             GameObject bulletsGO = GameObject.Find("Bullets");
             Text bulletsText = bulletsGO.GetComponent<Text>();
 
-            bulletsText.text = "Bullets Remaining: " + nBullets.ToString();
+            bulletsText.text = "Bullets: " + nBullets.ToString();
+
+            GameObject[] blocks = GameObject.FindGameObjectsWithTag("Block");
+            if (nBullets == 0 && blocks.Length > 0)
+                StartCoroutine(Lose());
         }
     }
 
-    private IEnumerator GoToMenu()
+    private IEnumerator Win()
     {
         yield return new WaitForSeconds(6);
         Victory();
+    }
+
+    private IEnumerator Lose()
+    {
+        yield return new WaitForSeconds(6);
+        loseCanvas.enabled = true;
+        inGameCanvas.enabled = false;
     }
 }

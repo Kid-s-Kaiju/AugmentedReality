@@ -404,6 +404,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Piece
       objectReference: {fileID: 0}
+    - target: {fileID: 4523630249590896123, guid: 546d0d2bf0eca4248ab49f9dc3fbb23a,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 4523630249590896125, guid: 546d0d2bf0eca4248ab49f9dc3fbb23a,
         type: 3}
       propertyPath: m_UseGravity
