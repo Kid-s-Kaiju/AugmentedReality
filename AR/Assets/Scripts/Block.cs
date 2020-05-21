@@ -26,10 +26,11 @@ public class Block : MonoBehaviour
             {
                 lastCheck = Time.time;
 
-                if (Vector3.Magnitude(transform.position - startPosition) > 1)
+                if (Vector3.Magnitude(transform.localPosition - startPosition) > 5)
                 {
                     hasFallen = true;
                     GameManager.Instance.RemoveBlock(gameObject);
+                    GameManager.Instance.score += 100;
                 }
             }
         }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -11,6 +12,10 @@ public class GameManager : MonoBehaviour
     
     private int currentLevel = 0;
     private bool isGameCompleted = false;
+
+    [HideInInspector]
+    public int score = 0, nBullets = 5;
+
 
     private void Awake()
     {
@@ -37,11 +42,12 @@ public class GameManager : MonoBehaviour
     {
         if (currentLevel < levelPrefabs.Length)
         {
+            score = 0;
+            nBullets = 5;
+
             GameObject lvl = Instantiate(levelPrefabs[currentLevel]);
             GameObject levelTarget = GameObject.Find("LevelTarget");
             
-            //lvl.transform.SetParent(levelTarget.transform, false);
-
             lvl.transform.parent = levelTarget.transform;
         }
 
@@ -65,7 +71,7 @@ public class GameManager : MonoBehaviour
     public void Victory()
     {
         currentLevel++;
-        
+
         GameObject[] blocks = GameObject.FindGameObjectsWithTag("Block");
         
         for (int i = 0; i < blocks.Length; ++i)
@@ -74,14 +80,30 @@ public class GameManager : MonoBehaviour
         GameObject[] bullets = GameObject.FindGameObjectsWithTag("Bullet");
 
         for (int i = 0; i < bullets.Length; ++i)
-            DestroyImmediate(bullets[i]);
+            DestroyImmediate(bullets[i]);           
 
         CreateLevel();
     }
 
     private void Update()
     {
-        //if (isGameCompleted)
-           // ChangeScene("Menu");
+        if (isGameCompleted)
+        {
+            ChangeScene("Menu");
+            currentLevel = 0;
+        }
+
+        if (SceneManager.GetActiveScene().name == "Game")
+        {
+            GameObject scoreGO = GameObject.Find("Score");
+            Text scoreText = scoreGO.GetComponent<Text>();
+
+            scoreText.text = "SCORE: " + score.ToString();
+
+            GameObject bulletsGO = GameObject.Find("Bullets");
+            Text bulletsText = bulletsGO.GetComponent<Text>();
+
+            bulletsText.text = "Bullets Remaining: " + nBullets.ToString();
+        }
     }
 }
