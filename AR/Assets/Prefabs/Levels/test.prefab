@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 1144660094226334136}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -5.05, z: 0}
-  m_LocalScale: {x: 10, y: 10, z: 10}
+  m_LocalScale: {x: 39.52, y: 10, z: 47.47}
   m_Children: []
   m_Father: {fileID: 7775746184003354659}
   m_RootOrder: 6
@@ -48,7 +48,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1144660094226334136}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -197,6 +197,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Piece (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 4523630249590896125, guid: 546d0d2bf0eca4248ab49f9dc3fbb23a,
+        type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 546d0d2bf0eca4248ab49f9dc3fbb23a, type: 3}
 --- !u!4 &4365921691618565858 stripped
@@ -271,6 +276,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Piece (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4523630249590896125, guid: 546d0d2bf0eca4248ab49f9dc3fbb23a,
+        type: 3}
+      propertyPath: m_UseGravity
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 546d0d2bf0eca4248ab49f9dc3fbb23a, type: 3}
@@ -347,6 +357,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Piece (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4523630249590896125, guid: 546d0d2bf0eca4248ab49f9dc3fbb23a,
+        type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 546d0d2bf0eca4248ab49f9dc3fbb23a, type: 3}
 --- !u!4 &3899160343243365577 stripped
@@ -421,6 +436,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Piece (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4523630249590896125, guid: 546d0d2bf0eca4248ab49f9dc3fbb23a,
+        type: 3}
+      propertyPath: m_UseGravity
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 546d0d2bf0eca4248ab49f9dc3fbb23a, type: 3}
@@ -497,6 +517,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Piece
       objectReference: {fileID: 0}
+    - target: {fileID: 4523630249590896125, guid: 546d0d2bf0eca4248ab49f9dc3fbb23a,
+        type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 546d0d2bf0eca4248ab49f9dc3fbb23a, type: 3}
 --- !u!4 &8567466593142838434 stripped
@@ -571,6 +596,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Piece (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4523630249590896125, guid: 546d0d2bf0eca4248ab49f9dc3fbb23a,
+        type: 3}
+      propertyPath: m_UseGravity
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 546d0d2bf0eca4248ab49f9dc3fbb23a, type: 3}

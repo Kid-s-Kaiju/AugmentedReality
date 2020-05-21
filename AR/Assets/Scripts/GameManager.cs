@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
     [HideInInspector]
     public int score = 0, nBullets = 5;
 
-
+        
     private void Awake()
     {
         Instance = this;
@@ -65,7 +65,7 @@ public class GameManager : MonoBehaviour
             allBlocks.Remove(block);
 
         if (allBlocks.Count == 0)
-            Victory();
+            StartCoroutine(GoToMenu());
     }
 
     public void Victory()
@@ -105,5 +105,11 @@ public class GameManager : MonoBehaviour
 
             bulletsText.text = "Bullets Remaining: " + nBullets.ToString();
         }
+    }
+
+    private IEnumerator GoToMenu()
+    {
+        yield return new WaitForSeconds(6);
+        Victory();
     }
 }

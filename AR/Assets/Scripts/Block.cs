@@ -22,24 +22,24 @@ public class Block : MonoBehaviour
         if (hasFallen)
             return;
 
-            if (gameObject.GetComponent<MeshRenderer>().enabled)
-            {
-                gameObject.GetComponent<Rigidbody>().useGravity = true;
+        if (gameObject.GetComponent<MeshRenderer>().enabled)
+        {
+            gameObject.GetComponent<Rigidbody>().useGravity = true;
                 
-                if (Time.time - lastCheck > 1)
-                {
-                    lastCheck = Time.time;
+            if (Time.time - lastCheck > 1)
+            {
+                lastCheck = Time.time;
 
-                    if (Vector3.Magnitude(transform.position - startPosition) > 5)
-                    {
-                        hasFallen = true;
-                        animatorr.SetBool("FadeStart", true);
-                        GameManager.Instance.RemoveBlock(gameObject);
-                        GameManager.Instance.score += 100;
-                        StartCoroutine(DestroyBlock());
-                    }
+                if (Vector3.Magnitude(transform.localPosition - startPosition) > 5)
+                {
+                    hasFallen = true;
+                    animatorr.SetBool("FadeStart", true);
+                    GameManager.Instance.RemoveBlock(gameObject);
+                    GameManager.Instance.score += 100;
+                    StartCoroutine(DestroyBlock());
                 }
             }
+        }
     }
 
     private IEnumerator DestroyBlock()
