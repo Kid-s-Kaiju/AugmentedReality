@@ -11,13 +11,6 @@ public class WinLose : MonoBehaviour
         score.text = GameManager.Instance.score.ToString();
 
         GameObject tracker = GameObject.Find("LevelTarget");
-
-        if (tracker != null)
-        {
-            //GameObject lvl = tracker.transform.GetChild(0).gameObject;
-            //lvl.transform.localPosition = Vector3.zero;
-            //lvl.transform.rotation = Quaternion.identity;
-        }
     }
 
     public void GoToMenu()
@@ -28,7 +21,7 @@ public class WinLose : MonoBehaviour
     public void GoToNextLevel()
     {
         GameManager.Instance.currentLevel++;
-        if (GameManager.Instance.currentLevel < 3)
+        if (GameManager.Instance.currentLevel < 4)
             GameManager.Instance.CreateLevel();
         else
             GoToMenu();
@@ -54,9 +47,6 @@ public class WinLose : MonoBehaviour
         }
 
         GameManager.Instance.CreateLevel();
-
-       
-
     }
   
 }

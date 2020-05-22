@@ -136,18 +136,12 @@ public class GameManager : MonoBehaviour
             GameObject[] blocks = GameObject.FindGameObjectsWithTag("Block");
             if (nBullets == 0 && blocks.Length > 0)
             {
-                //StartCoroutine(Lose());
                 loseCanvas.enabled = true;
                 inGameCanvas.enabled = false;
             }
         }
     }
 
-    private IEnumerator Win()
-    {
-        yield return new WaitForSeconds(6);
-        Victory();
-    }
 
     private IEnumerator TitleLevel()
     {
@@ -178,10 +172,5 @@ public class GameManager : MonoBehaviour
 
         rndrr.enabled = false;
 	}
-    private IEnumerator Lose()
-    {
-        yield return new WaitForSeconds(6);
-        loseCanvas.enabled = true;
-        inGameCanvas.enabled = false;
-    }
+
 }
