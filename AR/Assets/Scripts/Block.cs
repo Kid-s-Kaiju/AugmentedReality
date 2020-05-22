@@ -30,14 +30,28 @@ public class Block : MonoBehaviour
             {
                 lastCheck = Time.time;
 
-                if (Vector3.Magnitude(transform.localPosition - startPosition) > 5)
+                if (GameManager.Instance.currentLevel == 0)
                 {
-                    hasFallen = true;
-                    animatorr.SetBool("FadeStart", true);
-                    GameManager.Instance.RemoveBlock(gameObject);
-                    GameManager.Instance.score += 100;
-                    StartCoroutine(DestroyBlock());
+                    if (Vector3.Magnitude(transform.localPosition - startPosition) > 5)
+                    {
+                        hasFallen = true;
+                        animatorr.SetBool("FadeStart", true);
+                        GameManager.Instance.RemoveBlock(gameObject);
+                        GameManager.Instance.score += 100;
+                        Destroy(gameObject);
+                    }
                 }
+                else
+                {
+                    if (Vector3.Magnitude(transform.position - startPosition) > 5)
+                    {
+                        hasFallen = true;
+                        animatorr.SetBool("FadeStart", true);
+                        GameManager.Instance.RemoveBlock(gameObject);
+                        GameManager.Instance.score += 100;
+                        Destroy(gameObject);
+                    }
+                }      
             }
         }
     }

@@ -41,7 +41,7 @@ public class GameManager : MonoBehaviour
         {
             GameObject winGO = GameObject.Find("Win Canvas");
             GameObject loseGO = GameObject.Find("Lose Canvas");
-            GameObject inGameGO = GameObject.Find("Lose Canvas");
+            GameObject inGameGO = GameObject.Find("Ingame Canvas");
 
             winCanvas = winGO.GetComponent<Canvas>();
             loseCanvas = loseGO.GetComponent<Canvas>();
@@ -64,7 +64,9 @@ public class GameManager : MonoBehaviour
 
             GameObject lvl = Instantiate(levelPrefabs[currentLevel]);
             GameObject levelTarget = GameObject.Find("LevelTarget");
-            
+            levelTarget.transform.position = Vector3.zero;
+            levelTarget.transform.localPosition = Vector3.zero;
+
             lvl.transform.parent = levelTarget.transform;
         }
 
@@ -82,13 +84,14 @@ public class GameManager : MonoBehaviour
             allBlocks.Remove(block);
 
         if (allBlocks.Count == 0)
-            StartCoroutine(Win());
+            Victory();
     }
 
     public void Victory()
     {
         winCanvas.enabled = true;
         inGameCanvas.enabled = false;
+        loseCanvas.enabled = false;
 
         GameObject[] blocks = GameObject.FindGameObjectsWithTag("Block");
         
@@ -99,6 +102,13 @@ public class GameManager : MonoBehaviour
 
         for (int i = 0; i < bullets.Length; ++i)
             DestroyImmediate(bullets[i]);
+
+        GameObject tracker = GameObject.Find("LevelTarget");
+
+        for (int i = 0; i < tracker.transform.childCount; ++i)
+        {
+            DestroyImmediate(tracker.transform.GetChild(i).gameObject);
+        }
     }
 
     private void Update()
@@ -111,9 +121,9 @@ public class GameManager : MonoBehaviour
 
         if (SceneManager.GetActiveScene().name == "Game")
         {
-            GameObject scoreGO = GameObject.Find("Score");
+            GameObject scoreGO = GameObject.Find("Points");
             Text scoreText = scoreGO.GetComponent<Text>();
-
+                
             scoreText.text = "SCORE: " + score.ToString();
 
             GameObject bulletsGO = GameObject.Find("Bullets");
@@ -123,7 +133,11 @@ public class GameManager : MonoBehaviour
 
             GameObject[] blocks = GameObject.FindGameObjectsWithTag("Block");
             if (nBullets == 0 && blocks.Length > 0)
-                StartCoroutine(Lose());
+            {
+                //StartCoroutine(Lose());
+                loseCanvas.enabled = true;
+                inGameCanvas.enabled = false;
+            }
         }
     }
 
