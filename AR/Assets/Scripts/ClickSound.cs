@@ -7,6 +7,7 @@ public class ClickSound : MonoBehaviour
 {
     public AudioSource clickSound;
     public AudioSource overSound;
+    public AudioSource shootsound;
 
     public void PlayClickSound()
     {
@@ -16,5 +17,10 @@ public class ClickSound : MonoBehaviour
     public void PlayOverSound()
     {
         overSound.Play();
+    }
+
+    public void PlayShootSound()
+    {
+        shootsound.Play();
     }
 }
